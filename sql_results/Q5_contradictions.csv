@@ -1,0 +1,21 @@
+customer_id,contradiction_type,description,financial_impact
+C01095,Paid invoice with invalid payment timeline,Invoice I0002374: Invoice references non-existent/invalid subscription; Negative tax_amount,119097.16
+C00517,Paid invoice with invalid payment timeline,Invoice I0002584: Invoice references non-existent/invalid subscription,118981.4
+C00388,Paid invoice with invalid payment timeline,Invoice I0002965: Invoice references non-existent/invalid subscription,118867.58
+C01610,Paid invoice with invalid payment timeline,Invoice I0002702: Invoice references non-existent/invalid subscription; Negative tax_amount,118005.77
+C01551,Paid invoice with invalid payment timeline,Invoice I0002632: Negative tax_amount,117917.47
+C01610,Paid invoice with invalid payment timeline,,117329.79
+C00623,Paid invoice with invalid payment timeline,Invoice I0002643: Invoice references non-existent/invalid subscription; Payment date earlier than invoice date,117050.05
+C01515,Paid invoice with invalid payment timeline,Invoice I0002658: Duplicate invoice_id,116769.27
+,Paid invoice with invalid payment timeline,Invoice I0000488: Invoice references non-existent/invalid subscription; Payment date earlier than invoice date,116247.05
+,Paid invoice with invalid payment timeline,Invoice I0000488: Invoice references non-existent/invalid subscription; Payment date earlier than invoice date,116247.05
+C00711,Paid invoice with invalid payment timeline,Invoice I0000131: Invoice references non-existent/invalid subscription,116190.11
+C00034,Paid invoice with invalid payment timeline,Invoice I0002437: Invoice references non-existent/invalid subscription,115915.94
+C00119,High product usage but cancelled,Usage intensity 60.85 (above company average) yet subscription Cancelled,115635.92
+C00675,Paid invoice with invalid payment timeline,Invoice I0001757: Negative tax_amount,115415.34
+C00104,Paid invoice with invalid payment timeline,Invoice I0002100: Invoice references non-existent/invalid subscription; Payment date earlier than invoice date,114437.48
+C01795,Paid invoice with invalid payment timeline,Invoice I0002410: Invoice references non-existent/invalid subscription; Negative tax_amount; Payment date earlier than invoice date,114257.56
+C01494,Paid invoice with invalid payment timeline,Invoice I0002070: Duplicate invoice_id,113806.89
+C01515,High product usage but cancelled,Usage intensity 57.58 (above company average) yet subscription Cancelled,113715.85
+C00882,Paid invoice with invalid payment timeline,Invoice I0000566: Invoice references non-existent/invalid subscription,113555.42
+C00882,Paid invoice with invalid payment timeline,Invoice I0000566: Duplicate invoice_id; Invoice references non-existent/invalid subscription,113555.42

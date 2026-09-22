@@ -1,0 +1,262 @@
+The workbook contains four related sheets:
+
+subscriptions
+invoices
+product_usage
+support_cases
+
+The data intentionally contains duplicates, missing values, broken relationships, invalid dates, negative financial values, inconsistent statuses, invalid CSAT values, abnormal product usage and other data-quality problems.
+
+Business Scenario
+
+You are working as a Data Analyst for a B2B SaaS company.
+
+Management reports that:
+
+Subscription revenue is growing
+Customer cancellations are also increasing
+Finance reports higher revenue than the Customer Success team
+Some high-paying customers have very low product usage
+Support escalations are increasing
+Renewal performance differs significantly by region and plan
+
+The CEO wants to know:
+
+"Are we actually growing sustainably, or are we increasing revenue while creating future churn and revenue leakage?"
+
+Build an analytical solution using Python, SQL and Power BI.
+
+Part 1: Python
+
+Create an object-oriented Python solution named SaaSRevenueAuditEngine.
+
+Your solution must load all four sheets and create a reusable data validation and transformation pipeline.
+
+Validate and handle at minimum:
+
+Duplicate or missing subscription, invoice, usage and case IDs.
+Missing customer IDs.
+Subscription renewal dates earlier than signup dates.
+Negative or missing monthly fees.
+Discount percentages outside 0 to 100.
+Active subscriptions with logically inconsistent renewal information.
+Invoices linked to subscriptions that do not exist.
+Negative invoice or tax amounts.
+Paid invoices without valid payment dates.
+Payment dates before invoice dates.
+Negative login counts or active minutes.
+Usage records linked to customers not present in subscription data.
+Support cases closed before they were opened.
+Negative resolution hours.
+CSAT scores outside 1 to 5.
+Closed support cases with missing closure information.
+
+Do not simply delete every incorrect record.
+
+Classify each record as:
+
+VALID
+SUSPICIOUS
+INVALID
+
+Create a column explaining the reason for the classification.
+
+Using the cleaned data, create these customer-level metrics:
+
+MRR
+effective_monthly_revenue
+payment_failure_rate
+usage_intensity_score
+support_escalation_rate
+average_csat
+renewal_risk_score
+
+Create a Customer Health Score from 0 to 100 using product usage, payment behaviour, support behaviour and subscription status.
+
+Finally classify customers as:
+
+Healthy
+Watchlist
+High Risk
+
+The calculation must be reproducible and must not use hardcoded customer-specific rules.
+
+
+
+
+Part 2: SQL
+
+Load the cleaned datasets into SQL tables.
+
+All questions below must be answered primarily using SQL, not Pandas.
+
+SQL Question 1
+
+Calculate trusted MRR by subscription plan and region.
+
+Trusted MRR must exclude records you consider invalid.
+
+Compare:
+
+Reported MRR vs Trusted MRR
+
+and calculate:
+
+Revenue Overstatement %
+
+Rank regions from highest to lowest revenue overstatement.
+
+SQL Question 2
+
+Identify customers who are simultaneously:
+
+In the top 20% by effective monthly revenue
+In the bottom 30% by product usage
+Above the company average for support escalations
+
+Return the customer ID, revenue, plan, usage score, escalation count, CSAT and health score.
+
+Use a window function for percentile or ranking logic.
+
+SQL Question 3
+
+Find subscription plans where high discounting is not producing better retention.
+
+For each plan calculate:
+
+Average discount %
+Renewal rate
+Cancellation rate
+Average customer health score
+Trusted MRR
+
+Identify plans where discount is above company average but renewal performance is below company average.
+
+SQL Question 4
+
+Identify revenue at risk.
+
+A customer's revenue should be considered at risk when:
+
+The subscription is active
+Customer Health Score is High Risk
+The customer contributes positive trusted MRR
+
+Calculate total revenue at risk by:
+
+Region
+Plan
+Sales channel
+SQL Question 5
+
+Detect operational contradictions such as:
+
+Active subscription with repeated failed payments
+High product usage but cancellation
+Low product usage with Enterprise plan
+High CSAT despite repeated escalations
+Paid invoice but invalid payment timeline
+High revenue customer with very poor health score
+
+Return the 20 most important contradictions based on financial impact.
+
+SQL Question 6
+
+Create a final SQL table named:
+
+executive_customer_risk_summary
+
+It must contain at least:
+
+Field
+customer_id
+region
+plan_name
+sales_channel
+reported_mrr
+trusted_mrr
+total_invoice_value
+payment_failure_rate
+usage_intensity_score
+support_case_count
+escalation_count
+average_csat
+customer_health_score
+risk_category
+revenue_at_risk
+recommended_priority
+Part 3: Power BI
+
+Build one executive dashboard that answers:
+
+"Where is revenue growing but customer health deteriorating?"
+
+The report must include:
+
+KPI Cards
+Reported MRR
+Trusted MRR
+Revenue Overstatement %
+Revenue at Risk
+High Risk Customers %
+Renewal Rate
+Scatter Plot
+
+Plot:
+
+Trusted MRR vs Customer Health Score
+
+Use bubble size for support ticket volume and colour by risk category.
+
+The purpose is to identify high-value customers at risk.
+
+Matrix
+
+Show:
+
+Region → Plan
+
+with:
+
+Trusted MRR
+Renewal Rate
+Cancellation Rate
+Average Health Score
+Revenue at Risk
+Trend Visual
+
+Show monthly:
+
+Reported Revenue vs Trusted Revenue
+
+The visual should make revenue-quality deterioration visible.
+
+Customer Risk Table
+
+Show the top 20 customers requiring intervention with:
+
+Customer
+Plan
+Revenue
+Usage
+Escalations
+CSAT
+Health Score
+Revenue at Risk
+Drill-through
+
+Create:
+
+Region → Plan → Customer
+
+so leadership can move from business performance to individual customer risk.
+
+Final Decision
+
+At the end of the assessment, answer:
+
+If the company can invest in only ONE area next quarter, should it prioritize customer retention, product engagement, payment recovery, or acquisition?
+
+Select only one.
+
+Support the decision using at least three quantitative findings from your Python, SQL and Power BI analysis.

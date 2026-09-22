@@ -1,0 +1,4 @@
+customer_id,revenue,plan_name,usage_score,escalation_count,csat,health_score
+C00042,101951.77,,37.09,1,2.0,34.26
+C01194,88418.62,,0.0,1,3.0,50.82
+C00988,43178.08,Pro,0.0,1,1.0,19.67
